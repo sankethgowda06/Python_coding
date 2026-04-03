@@ -1,0 +1,86 @@
+Build a full-stack AI middleware platform called "InfyAI Optimizer".
+
+Tech Stack:
+- Backend: Python (FastAPI)
+- Frontend: React (with modern UI, Tailwind CSS or Material UI)
+- AI Models: Gemini API + local LLaMA (via API endpoint)
+
+Objective:
+Create an enterprise-grade AI optimization system that reduces cost, improves output quality, and accelerates response time.
+
+Core Features (MUST IMPLEMENT):
+
+1. Prompt Optimization Engine:
+- Accept user prompt
+- Compress and clean prompt (remove redundancy)
+- Show original vs optimized prompt
+- Estimate token reduction
+
+2. Smart Model Router:
+- Route simple prompts → LLaMA (local, cheaper)
+- Route complex prompts → Gemini API
+- Add rule-based logic (length, keywords, complexity)
+
+3. AI Response Handler:
+- Call selected model
+- Return response
+
+4. Output Quality Controller:
+- Validate response:
+  - Ensure format (JSON or structured text)
+  - Detect basic errors in code (if code output)
+- Improve response (refine using second LLM call if needed)
+
+5. Caching Layer:
+- Store prompts and responses (use Redis or in-memory dict)
+- If same/similar prompt → return cached result
+
+6. Dashboard (IMPORTANT UI):
+- Show:
+  - Token usage
+  - Estimated cost savings
+  - Response time
+  - Model used (Gemini or LLaMA)
+- Graphs (charts)
+
+7. Output Formatter:
+- Allow user to select output type:
+  - JSON
+  - Plain text
+  - Code block
+
+UI Requirements:
+- Modern dashboard (dark theme preferred)
+- Sidebar navigation:
+  - Prompt Playground
+  - Dashboard
+  - History
+- Show:
+  - Model switching visually
+  - Before/After optimization
+  - Response time badge
+- Use charts (Recharts or Chart.js)
+
+Backend API Endpoints:
+- POST /optimize-prompt
+- POST /route-model
+- POST /generate
+- GET /metrics
+- GET /history
+
+Bonus Features:
+- Add “Confidence Score” for output quality
+- Add toggle to force model selection
+- Add loading animations
+
+Architecture:
+User → React UI → FastAPI → 
+[Prompt Optimizer → Model Router → LLM → Output Validator → Cache] → Response
+
+Deliver:
+- Clean folder structure
+- Fully working APIs
+- Frontend connected to backend
+- Sample test prompts
+
+Ensure code is modular, production-style, and easy to demo.
